@@ -1,0 +1,33 @@
+version: '3'
+
+# Named volumes
+volumes:
+  # MySQL Data
+  loginapi-mysql-data:
+    driver: local
+
+services:
+  # MySQL (5.7)
+  mysql:
+    image: mysql:5.7
+    container_name: loginapi-mysql
+    volumes:
+      - loginapi-mysql-data:/var/lib/mysql
+    ports:
+      - "33306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=loginapi_thinksurance
+      - MYSQL_DATABASE=loginapi_db
+      - MYSQL_USER=loginapi
+      - MYSQL_PASSWORD=loginapi_thinksurance
+
+  # PHP with nginx
+  app:
+    image: ambientum/php:7.3-nginx
+    container_name: thinksurance-loginapi-backend
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "8000:8000"
+    links:
+      - mysql
