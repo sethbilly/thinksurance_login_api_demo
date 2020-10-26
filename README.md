@@ -66,9 +66,9 @@ The API conformed to REST practices and  provide the following functionality:
 ```
     models： user, role, permission
     
-    post   /api/register                                 register a new account
-    post   /api/login                                    authenticate user account and return roles with permissions
-    post   /api/roles/assign                             assign role to user account
+    post   /api/register                       register a new account
+    post   /api/login                          authenticate user account and return roles with permissions
+    post   /api/roles/assign                   assign role to user account
     
 ```
 - The postman documentation link is at https://documenter.getpostman.com/view/6964961/TVYGbcfF
