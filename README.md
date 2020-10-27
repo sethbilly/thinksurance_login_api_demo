@@ -48,7 +48,7 @@ sh ./start.sh
 composer install
 cp .env.example .env  [Change database connections in .env]
 php artisan migrate --seed
-php -S localhost:8000 -t ./public
+php -S localhost:8000 -t public
 composer test
 ```
 
